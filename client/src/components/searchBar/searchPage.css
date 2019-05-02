@@ -1,0 +1,23 @@
+.searchbar-container{
+    background-color:white;
+    border: 2px solid black;
+    width: 100%;
+    height:200px;
+}
+input{
+ width: 80%;
+margin:20px;
+}
+.btn{
+    margin:20px;
+    float:right;
+}
+.resultsContainer{
+    background-color:white;
+    border: 2px solid black;
+    width: 100%;
+    min-height:200px; 
+}
+h2{
+    text-align:center;
+}
