@@ -40,7 +40,7 @@ deleteBook=(event)=>{
                 id={book.id}
                 author={book.author}
                 title={book.title}
-                link={book.link}
+                view={book.link}
                 image={book.image}
                 description={book.description}
                 delete="delete"
