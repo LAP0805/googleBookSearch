@@ -1,5 +1,8 @@
 .bookDetailBox{
-    border:solid 2px black;
+    border-radius:5px;
+    padding:5px;
+    margin:5px;
+    border:1px solid #9bc5d1;
 }
 .bookImage{
     height:200px;

@@ -16,16 +16,18 @@ handleInputChange=(event)=>{
         bookQuery: input
     })
     console.log(this.state.bookQuery)
+    
 }
 
-getBooks = ()=>{
- 
+getBooks = (event)=>{
+ event.preventDefault();
 API.search(this.state.bookQuery)
 .then(results=>{
     this.setState({
         books: results.data.items
     })
     console.log(this.state.books)
+    console.log(this.state.books[0].id)
 }).catch(error=>{
     if (error){
         console.log(error)
@@ -34,9 +36,6 @@ API.search(this.state.bookQuery)
 
 }
 
-
-
-
     render(){
         return(
             <>
@@ -44,21 +43,24 @@ API.search(this.state.bookQuery)
             <br></br>
             <div className="container ">
                 <div className="searchbar-container">
-                    <form>
+                    <form onSubmit={this.getBooks}>
                         <input type="text" onChange={this.handleInputChange} placeHolder="Enter search terms here"></input>
-                        <button type="button" onClick={this.getBooks} className="btn btn-primary">Search</button>
+                        <button type="submit" className="btn btn-primary">Search</button>
                     </form>
                  </div>
             </div>
             <div className="container">
-                <div className="resultsContainer">
+                <div className="resultContainer">
 
                 {this.state.books ? this.state.books.map(book=>{
+                    
                     if(book.volumeInfo.imageLinks){
+                        
                     return(
 
                         <BookDetail
-                         key={book.volumeInfo.title}
+                         key={book.id}
+                         id={book.id}
                          title={book.volumeInfo.title}
                          image={book.volumeInfo.imageLinks.smallThumbnail}
                          description={book.volumeInfo.description}
@@ -69,11 +71,13 @@ API.search(this.state.bookQuery)
                      )}
                      else{
                          return (<BookDetail
-                        key={book.volumeInfo.title}
+                        key={book.id}
                         title={book.volumeInfo.title}
                         image='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'
                         description={book.volumeInfo.description}
                         author={book.volumeInfo.authors}
+                        view={book.volumeInfo.previewLink}
+                        delete={null}
                         
                          />
                          )
