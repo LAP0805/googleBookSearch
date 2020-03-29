@@ -1,13 +1,15 @@
-h1,h3{
-    text-align:center;
+h1,
+h3 {
+    text-align: center;
     font-family: 'Fjalla One', sans-serif;
-    margin:20px;
+    margin: 20px;
     color: #3d6c97;
 }
-.headerBackground{
-    height:200px;
-    width:600px;
+
+.headerBackground {
+    height: 200px;
+    width: 600px;
     border-radius: 5px;
     box-shadow: 5px 5px #6e6c6c;
-    background-color:white;
+    background-color: white;
 }

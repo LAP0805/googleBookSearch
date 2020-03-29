@@ -19,20 +19,20 @@ handleInputChange=(event)=>{
     
 }
 
-getBooks = (event)=>{
- event.preventDefault();
-API.search(this.state.bookQuery)
-.then(results=>{
-    this.setState({
-        books: results.data.items
-    })
-    console.log(this.state.books)
-    console.log(this.state.books[0].id)
-}).catch(error=>{
-    if (error){
-        console.log(error)
-    }
-})
+getBooks = (event) => {
+    event.preventDefault();
+    API.search(this.state.bookQuery)
+        .then(results => {
+            this.setState({
+                books: results.data.items
+            })
+            console.log(this.state.books)
+            console.log(this.state.books[0].id)
+        }).catch(error => {
+            if (error) {
+                console.log(error)
+            }
+        })
 
 }
 

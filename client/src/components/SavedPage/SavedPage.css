@@ -1,8 +1,8 @@
-.resultsContainer{
-    margin:20px;
-    background-color:white;
+.resultsContainer {
+    margin: 20px;
+    background-color: white;
     border-radius: 5px;
     width: 100%;
-    min-height:200px; 
-    
+    min-height: 200px;
+
 }

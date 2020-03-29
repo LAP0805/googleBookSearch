@@ -4,28 +4,28 @@ import BookDetail from '../bookDetail/bookDetail';
 
 import axios from 'axios';
 
-class SavedPage extends React.Component{
-state={
-    savedBooks:[]
-}
-renderSavedBooks = ()=>{
-   axios.get('/api/books').then((response)=>{
-     console.log(response.data)
-     this.setState({
-        savedBooks: response.data
-    })
-   })  
-}
-componentDidMount() {
-    this.renderSavedBooks();
-}
-deleteBook=(event)=>{
-    let idtoDelete = event.target.getAttribute('data-tag');
-    console.log(idtoDelete)
-    axios.delete("/api/books/" + idtoDelete).then((response)=>{
-    this.renderSavedBooks();
-    })
-    }
+class SavedPage extends React.Component {
+        state = {
+            savedBooks: []
+        }
+        renderSavedBooks = () => {
+            axios.get('/api/books').then((response) => {
+                console.log(response.data)
+                this.setState({
+                    savedBooks: response.data
+                })
+            })
+        }
+        componentDidMount() {
+            this.renderSavedBooks();
+        }
+        deleteBook = (event) => {
+            let idtoDelete = event.target.getAttribute('data-tag');
+            console.log(idtoDelete)
+            axios.delete("/api/books/" + idtoDelete).then((response) => {
+                this.renderSavedBooks();
+            })
+        }
     render(){
         return(
             <>
